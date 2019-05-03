@@ -38,28 +38,26 @@
 						onclick="javascript:arc.greeter.start_authentication(arc.theme.user.name);">sign in</button>
 					</div>
 
-					<div id="session-box">
-						Selected session&nbsp;
-						<div id="session-select">
-							<div id="session-text">xfce</div>
-							<ul id="session-field"></ul>
-						</div>
+					<div id="session-box" class="small-text">
+						Selected session&nbsp;<span id="session-text">xfce</span>
 					</div>
+					<ul id="session-field"></ul>
 
 				</div>
 
-				<div id="not-listed-btn" tabindex="0" onclick="javascript:arc.theme.switch_view();">Not listed?</p>
-			</div>
+				<p id="not-listed-btn" class="small-text" tabindex="0" onclick="javascript:arc.theme.switch_view();">
+					Not listed?
+				</p>
 
 			<div class="bottom-panel">
 				<div class="bottom-panel-inner">
-					<button id="shutdown-btn" class="action-btn" onclick="javascript:lightdm.shutdown();" tabindex="0">shutdown</button>
+					<button id="shutdown-btn" class="action-btn small-text" onclick="javascript:lightdm.shutdown();" tabindex="0">shutdown</button>
 					
-					<button id="restart-btn" class="action-btn" onclick="javascript:lightdm.restart();" tabindex="0">restart</button>
+					<button id="restart-btn" class="action-btn small-text" onclick="javascript:lightdm.restart();" tabindex="0">restart</button>
 					
-					<button id="suspend-btn" class="action-btn" onclick="javascript:lightdm.suspend();" tabindex="0">suspend</button>
+					<button id="suspend-btn" class="action-btn small-text" onclick="javascript:lightdm.suspend();" tabindex="0">suspend</button>
 					
-					<button id="hibernate-btn" class="action-btn" onclick="javascript:lightdm.hibernate();" tabindex="0">hibernate</button>
+					<button id="hibernate-btn" class="action-btn small-text" onclick="javascript:lightdm.hibernate();" tabindex="0">hibernate</button>
 				</div>
 			</div>
 		</div>

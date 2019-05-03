@@ -1,6 +1,6 @@
 [theme]
-name=Sequoia
-description=Sequoia Theme
+name=Sequoia2
+description=Sequoia2 Theme
 engine=lightdm-webkit-greeter
 url=index.html
 session=xfce
