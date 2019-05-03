@@ -74,21 +74,14 @@ body, .wrap {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
-	height: 100%;
-	padding: 0 10px 0 10px;
+	padding: 0 10px;
 	display: none;
 	outline: none;
 	-webkit-transition-property: background-color padding-bottom;
 	-webkit-transition-duration: 0.1s;
 }
 
-.action-btn:focus, .action-btn:active {
-	background-color: rgba(255, 255, 255, 0.1);
-	color: #fff;
-}
-
-.action-btn:hover {
-	background-color: rgba(255, 255, 255, 0.08);
+.action-btn:focus, .action-btn:active, .action-btn:hover {
 	color: #fff;
 }
 
@@ -298,17 +291,16 @@ body, .wrap {
 
 #session-field {
 	display: none;
-	margin-top: 2px;
-	margin-left: -5px;
-	border-radius: 5px;
-	position: fixed;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: transparent;
 	color: #8a8a8a;
 	list-style: none;
-	padding: 5px;
+	padding: 5px 0;
+	text-align: center;
 }
 
 #session-field li {
+	display: inline-block;
+	padding: 0 10px;
 	cursor: pointer;
 }
 

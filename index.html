@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="wrap">
-
+			<div id="background"></div>
 			<div class="top-panel">
 				<div id="clock_widget"></div>
 				<div id="notification-area"></div>
@@ -22,7 +22,7 @@
 
 				<select id="session-list" style="display: none;"></select>
 
-				<div id="login-input">	
+				<div id="login-input">
 					<div id="user-info">
 					</div>
 					
@@ -41,14 +41,14 @@
 					<div id="session-box" class="small-text">
 						Selected session&nbsp;<span id="session-text">xfce</span>
 					</div>
-					<ul id="session-field"></ul>
+					<ul id="session-field" class="small-text"></ul>
 
 				</div>
 
 				<p id="not-listed-btn" class="small-text" tabindex="0" onclick="javascript:arc.theme.switch_view();">
 					Not listed?
 				</p>
-
+			</div>
 			<div class="bottom-panel">
 				<div class="bottom-panel-inner">
 					<button id="shutdown-btn" class="action-btn small-text" onclick="javascript:lightdm.shutdown();" tabindex="0">shutdown</button>
@@ -61,8 +61,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="background"></div>
 
 		<script src="js/arc.js"></script>
 	</body>
