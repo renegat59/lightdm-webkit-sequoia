@@ -1,6 +1,19 @@
 var _theme = null;
 var _greeter_instance = null;
 
+function hexToR(h) {return parseInt((fixHex(h)).substring(0,2),16)}
+function hexToG(h) {return parseInt((fixHex(h)).substring(2,4),16)}
+function hexToB(h) {return parseInt((fixHex(h)).substring(4,6),16)}
+function hexToRGB(h) {
+	return hexToR(h) + ', ' + hexToG(h) + ', ' + hexToB(h);
+}
+function fixHex(h) {
+	if(h.length === 4){
+		h = h.split("").map(char => char !== '#' ? char+char : char).join("");
+	}
+	return (h.charAt(0)=="#") ? h.substring(1,7) : h
+}
+
 class ArcGreeter {
 	constructor() {
 		if ( null !== _greeter_instance ) {
@@ -37,7 +50,7 @@ class ArcGreeter {
 	start_authentication(username) {
 		if (_theme.$usernameField.is(":visible")){
 			if(username.length <= 0) {
-				_theme.$usernameField.addClass("red-outline");
+				_theme.$usernameField.addClass("input-error");
 				_theme.$usernameField.focus();
 				return;
 			}
@@ -60,8 +73,8 @@ class ArcGreeter {
 			_theme.$passwordField.prop( "disabled", false );
 			_theme.$cancelButton.prop( "disabled", false );
 			_theme.$loginButton.prop( "disabled", false );
-			_theme.$usernameField.removeClass("red-outline");
-			_theme.$passwordField.addClass("red-outline");
+			_theme.$usernameField.removeClass("input-error");
+			_theme.$passwordField.addClass("input-error");
 			_theme.$passwordField.focus();
 		}
 		else {
@@ -134,9 +147,9 @@ class ArcTheme {
 		});
 
 		if(prefs["background_image_visible"]) {
-			$("#background").css({
-				"opacity": 1-prefs["background_opacity"],
-				"background-color": prefs["background_overlay_color"]
+			var bkgColor = prefs["background_overlay_color"];
+			$(".wrap").css({
+				"background-color": "rgba("+hexToRGB(bkgColor) + ", " + (1-prefs["background_opacity"]) + ")"
 			});
 			$("body").css("background-image", "url(" + prefs["background_image"] + ")");
 		}
@@ -398,7 +411,7 @@ class ArcTheme {
 						});
 			});
 		} else {
-			var html = '<img height="150" width="150" src="' + userImage + '" class="round-image">' + user.name;
+			var html = '<img src="' + userImage + '" class="round-image">' + user.name;
 			this.$userInfo.empty().append(html);
 		}
 	}
@@ -433,8 +446,8 @@ class ArcTheme {
 
 		var html = '<img height="150" width="150" src="' + prefs["default_user_image"] + '" class="round-image">';
 		_theme.$userInfo.empty().append(html);
-		_theme.$passwordField.removeClass("red-outline");
-		_theme.$usernameField.removeClass("red-outline");
+		_theme.$passwordField.removeClass("input-error");
+		_theme.$usernameField.removeClass("input-error");
 		_theme.$passwordField.val("");
 		_theme.$usernameField.val("");
 		_theme.$loginBox.show();
@@ -449,7 +462,7 @@ class ArcTheme {
 		if(lightdm.in_authentication)
 			return;
 
-		_theme.$passwordField.removeClass("red-outline");
+		_theme.$passwordField.removeClass("input-error");
 		_theme.$userList.show();
 		_theme.$loginBox.hide();
 		_theme.$userList.children().first().focus();

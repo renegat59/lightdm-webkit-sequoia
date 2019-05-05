@@ -17,5 +17,5 @@ var prefs = {
 	"allow_shutdown": true,
 	"allow_restart": true,
 	"allow_suspend": true,
-	"allow_hibernate": true
+	"allow_hibernate": false
 }

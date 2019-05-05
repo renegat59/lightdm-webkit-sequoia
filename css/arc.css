@@ -324,17 +324,10 @@ body, .wrap {
 	margin-left: auto;
 }
 
-.red-outline {
-	height: 25px !important;
-	width: calc(100% - 2px) !important;
-	outline: 0 !important;
-	border: 1px solid red !important;
-	margin-bottom: 19px !important;
-	margin-top: 9px !important;
-}
-
 .round-image {
-	margin: 10px;
+	width: 120px;
+	height: 120px;
+	margin: 20px;
 	border-radius: 100%;
 	background-color: #2d3235;
 }
@@ -360,4 +353,10 @@ body, .wrap {
 	100% {
 		border-color: #fff;
 	}
+}
+
+.input-error {
+	background-color: rgba(230, 0, 50, 0.2) !important;
+	color: rgba(230, 0, 50, 1) !important;
+	border-color: rgba(230, 0, 50, 1) !important;
 }
